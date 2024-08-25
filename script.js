@@ -169,6 +169,7 @@ function nextQuestion() {
   }
 }
 
+function showQuestion() {}
 function showScore() {
   resetState();
 
