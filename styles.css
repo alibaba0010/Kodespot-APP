@@ -50,6 +50,14 @@ body {
   background: #222;
   color: #fff;
 }
+
+.answer-btn:hover:not([disabled]) {
+  background-color: #222;
+  color: #fff;
+}
+.answer-btn:disabled {
+  cursor: no-drop;
+}
 #next-btn {
   background: #001e4d;
   color: #fff;
@@ -61,4 +69,10 @@ body {
   border-radius: 4px;
   cursor: pointer;
   display: none;
+}
+.correctAnswer {
+  background-color: #9aeabc;
+}
+.wrongAnswer {
+  background-color: #ff9393;
 }
