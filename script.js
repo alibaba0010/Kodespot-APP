@@ -68,7 +68,7 @@ const quizData = [
     // correctAnswer: "William Shakespeare",
   },
 ];
-
+console.log("Show Quiz length: ", quizData.length);
 let currentQuestionIndex = 0;
 let score = 0;
 
@@ -163,21 +163,26 @@ submitButton.addEventListener("click", () => {
 function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < quizData.length) {
-    showQuestion();
+    loadQuestion();
   } else {
     showScore();
   }
 }
 
-function showQuestion() {}
 function showScore() {
   resetState();
-
-  questionElement.innerHTML = `
+  for (let i = 0; i < questionElement.length; i++) {
+    questionElement[i].innerHTML = `
     <h2>Quiz Completed!</h2>
     <p>Your final score is ${score} out of ${quizData.length}</p>
-    <button onclick="location.reload()">Restart Quiz</button>
-  `;
+    `;
+  }
+  // <button onclick="location.reload()">Restart Quiz</button>
+  //   questionElement.innerHTML  = `
+  //   <h2>Quiz Completed!</h2>
+  //   <p>Your final score is ${score} out of ${quizData.length}</p>
+  //   <button onclick="location.reload()">Restart Quiz</button>
+  // `;
   submitButton.innerHTML = "Start Quiz Again";
   submitButton.style.display = "block";
 }
