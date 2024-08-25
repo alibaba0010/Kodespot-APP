@@ -1,12 +1,14 @@
-const quizContainer = document.getElementById("quiz-container");
-const questionElement = document.getElementById("question");
-const answersElement = document.getElementById("answers");
-const submitButton = document.getElementById("submit");
-
+const quizContainer = document.getElementsByClassName("quiz-container");
+const questionElement = document.getElementsByClassName("question-header");
+const answersElement = document.getElementById("answer-btns");
+const submitButton = document.getElementById("next-btn");
 // Sample quiz data
 const quizData = [
   {
     question: "What is the capital of France?",
+    // options: [
+    //   { text: "Paris", text: "London", text: "Berlin", text: "Madrid" },
+    // ],
     options: ["Paris", "London", "Berlin", "Madrid"],
     correctAnswer: "Paris",
   },
@@ -58,22 +60,30 @@ let score = 0;
 function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
-  nextButton.innerHTML = "Next";
+  submitButton.innerHTML = "Next";
   loadQuestion();
 }
 function loadQuestion() {
+  // resetState();
   const currentQuestion = quizData[currentQuestionIndex];
-  questionElement.textContent = currentQuestion.question;
-
+  let questionNo = currentQuestionIndex + 1;
+  // questionElement.textContent = currentQuestion.question;
+  for (let i = 0; i < questionElement.length; i++) {
+    questionElement[i].innerHTML = questionNo + "." + currentQuestion.question;
+  }
   answersElement.innerHTML = "";
   currentQuestion.options.forEach((option) => {
-    const answerLi = document.createElement("li");
-    answerLi.textContent = option;
-    answersElement.appendChild(answerLi);
+    const answerButton = document.createElement("button");
+    // const answerLi = document.createElement("li");
+    answerButton.innerHTML = option;
+    // answerLi.textContent = option;
+    answerButton.classList.add("answer-btn");
+    answersElement.appendChild(answerButton);
+    // answersElement.appendChild(answerLi);
   });
 }
 
-loadQuestion();
+startQuiz();
 
 submitButton.addEventListener("click", () => {
   // Check answer and update score
