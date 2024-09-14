@@ -100,12 +100,13 @@ function loadQuestion() {
       answerButton.dataset.correctAnswer = option.correctAnswer;
       // console.log(answerButton.dataset.correctAnswer);
     }
+    console.log(answerButton.dataset);
     answerButton.addEventListener("click", selectAnswer);
   });
 }
 function selectAnswer(event) {
   const selectedAnswer = event.target;
-  // console.log("selectedAnswer", selectedAnswer);
+  console.log("selectedAnswer", selectedAnswer);
   const correctAnswer = selectedAnswer.dataset.correctAnswer === "true"; // needed to add "true" cos if not true it returns undefined
   // console.log("Correct Answer: ", correctAnswer);
   if (correctAnswer) {
