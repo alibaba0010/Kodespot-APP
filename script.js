@@ -128,7 +128,7 @@ function selectAnswer(event) {
   // setTimeout(() => {
   //   selectedAnswer.classList.remove("correct");
   // }, 1000);
-  // console.log("Current Question Index: ", currentQuestionIndex);
+  console.log("Current Question Index: ", currentQuestionIndex);
   // console.log("Quiz Data Length: ", quizData.length);
   if (currentQuestionIndex < quizData.length) {
     submitButton.innerHTML = "Next";
