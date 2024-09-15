@@ -136,6 +136,7 @@ function selectAnswer(event) {
     submitButton.innerHTML = "Finish";
     // Display score
   }
+  submitButton.addEventListener("click", (event) => nextButton(event, data));
 }
 function resetState() {
   submitButton.style.display = "none";
@@ -147,8 +148,9 @@ function resetState() {
 }
 startQuiz();
 
-submitButton.addEventListener("click", () => {
-  // Check answer and update score
+// submitButton.addEventListener("click", () => {
+// Check answer and update score
+function nextButton(event, data) {
   if (currentQuestionIndex < quizData.length) {
     console.log(" Quiz Data: ", currentQuestionIndex);
     nextQuestion();
@@ -156,7 +158,8 @@ submitButton.addEventListener("click", () => {
     // Quiz finished
     startQuiz();
   }
-});
+}
+// });
 
 function nextQuestion() {
   currentQuestionIndex++;
@@ -175,12 +178,6 @@ function showScore() {
     <p>Your final score is ${score} out of ${quizData.length}</p>
     `;
   }
-  // <button onclick="location.reload()">Restart Quiz</button>
-  //   questionElement.innerHTML  = `
-  //   <h2>Quiz Completed!</h2>
-  //   <p>Your final score is ${score} out of ${quizData.length}</p>
-  //   <button onclick="location.reload()">Restart Quiz</button>
-  // `;
   submitButton.innerHTML = "Start Quiz Again";
   submitButton.style.display = "block";
 }
