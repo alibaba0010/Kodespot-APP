@@ -136,7 +136,9 @@ function selectAnswer(event) {
     submitButton.innerHTML = "Finish";
     // Display score
   }
-  submitButton.addEventListener("click", (event) => nextButton(event, data));
+  submitButton.addEventListener("click", (event) =>
+    nextButton(event, quizData)
+  );
 }
 function resetState() {
   submitButton.style.display = "none";
@@ -150,7 +152,7 @@ startQuiz();
 
 // submitButton.addEventListener("click", () => {
 // Check answer and update score
-function nextButton(event, data) {
+function nextButton(event, quizData) {
   if (currentQuestionIndex < quizData.length) {
     console.log(" Quiz Data: ", currentQuestionIndex);
     nextQuestion();
